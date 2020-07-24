@@ -18,8 +18,10 @@ func subarraySum(nums []int, k int) int {
 		// check if the current sum of the list, minus k (the searched for solution)
 		// is in the map
 		if _, ok := m[sum-k]; ok {
-			// the reason (sum-k) is mapped, is because a (sum-k) can happen more than once
-			// if so increment the count!
+			// e.g. suppose we are looking for 7
+			// if k=7 - sum 7 = 0
+			// zero was initialized in the map
+			// increment the count!
 			count += m[sum-k]
 		}
 		// map the sum. Plus the sum of the number of times it happens
@@ -34,6 +36,10 @@ func subarraySum(nums []int, k int) int {
 }
 
 func main() {
+	// [3,4]
+	// [7]
+	// [7,2,-3,1]
+	// [1,4,2]
 	in := []int{3, 4, 7, 2, -3, 1, 4, 2}
 	num := 7
 	out := subarraySum(in, num)
